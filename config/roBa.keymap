@@ -52,12 +52,12 @@
          * --------------------------- */
 
         eisu {
-            bindings = <&kp INT_MUHENKAN>;
+            bindings = <&kp LANGUAGE_5>;
             key-positions = <3 4>;
         };
 
         hiragana {
-            bindings = <&kp INT_HENKAN>;
+            bindings = <&kp LANGUAGE_4>;
             key-positions = <5 6>;
         };
 
