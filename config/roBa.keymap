@@ -143,10 +143,10 @@
 
         ARROW {
             bindings = <
-&kp ESCAPE      &kp LC(LS(TAB))         &kp UP_ARROW    &kp LC(TAB)              &trans                              &trans  &trans  &trans  &trans  &trans
-&kp HOME        &kp LEFT_ARROW          &kp DOWN_ARROW  &kp RIGHT_ARROW          &kp END  &trans      &kp PAGE_UP    &trans  &trans  &trans  &trans  &trans
-&kp LEFT_SHIFT  &kp LG(LS(LEFT_ARROW))  &trans          &kp LG(LS(RIGHT_ARROW))  &trans   &trans      &kp PAGE_DOWN  &trans  &trans  &trans  &trans  &trans
-&trans          &trans                  &trans          &kp LEFT_GUI             &trans   &trans      &trans         &trans                          &trans
+&kp ESCAPE      &kp LC(LS(TAB))         &kp UP_ARROW    &kp LC(TAB)              &kp SCROLLLOCK                             &trans  &trans  &trans  &trans  &trans
+&kp HOME        &kp LEFT_ARROW          &kp DOWN_ARROW  &kp RIGHT_ARROW          &kp END         &trans      &kp PAGE_UP    &trans  &trans  &trans  &trans  &trans
+&kp LEFT_SHIFT  &kp LG(LS(LEFT_ARROW))  &trans          &kp LG(LS(RIGHT_ARROW))  &trans          &trans      &kp PAGE_DOWN  &trans  &trans  &trans  &trans  &trans
+&trans          &trans                  &trans          &kp LEFT_GUI             &trans          &trans      &trans         &trans                          &trans
             >;
 
             /* ★上書きしない（default_layer のスクロールが生きる） */
