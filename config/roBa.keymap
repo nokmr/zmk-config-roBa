@@ -96,15 +96,18 @@
 
         default_layer {
             bindings = <
-&kp Q             &kp W         &kp E         &kp R         &kp T                                                       &kp Y        &kp U  &lt 5 I    &kp O    &kp P
-&kp A             &kp S         &kp D         &kp F         &kp G        &msc MOVE_X(5)                  &kp MINUS      &kp H        &kp J  &kp K      &kp L    &lt 5 APOSTROPHE
-&mt LEFT_SHIFT Z  &kp X         &kp C         &kp V         &kp B        &lt_to_layer_0 6 SEMICOLON      &kp SEMICOLON  &kp N        &kp M  &kp COMMA  &kp DOT  &kp SLASH
-&kp LCTRL         &kp LEFT_WIN  &kp LEFT_ALT  &kp CAPSLOCK  &lt 2 SPACE  &lt_to_layer_0 3 ESC            &kp BACKSPACE  &lt 1 ENTER                             &kp DEL
+&kp Q             &kp W           &kp E         &kp R         &kp T                                                       &kp Y        &kp U  &lt 5 I    &kp O    &kp P
+&kp A             &kp S           &kp D         &kp F         &kp G        &msc MOVE_X(5)                  &kp MINUS      &kp H        &kp J  &kp K      &kp L    &lt 5 APOSTROPHE
+&mt LEFT_SHIFT Z  &kp X           &kp C         &kp V         &kp B        &lt_to_layer_0 6 SEMICOLON      &kp SEMICOLON  &kp N        &kp M  &kp COMMA  &kp DOT  &kp SLASH
+&kp LCTRL         &lt 3 LEFT_GUI  &kp LEFT_ALT  &kp CAPSLOCK  &lt 2 SPACE  &lt_to_layer_0 3 ESC            &kp BACKSPACE  &lt 1 ENTER                             &kp DEL
             >;
 
             /* ★ロータリー：ここだけに置く（全レイヤーで有効） */
 
-            sensor-bindings =<&inc_dec_kp K_SCROLL_UP K_SCROLL_DOWN>, <&inc_dec_kp 0 0>;
+            sensor-bindings =
+                <&inc_dec_kp K_SCROLL_UP K_SCROLL_DOWN>,
+                <&inc_dec_kp 0 0>;
+
             sensor-bindings = <&inc_dec_kp K_SCROLL_UP K_SCROLL_DOWN>;
         };
 
@@ -143,7 +146,7 @@
 &kp ESCAPE      &kp LC(LS(TAB))         &kp UP_ARROW    &kp LC(TAB)              &trans                              &trans  &trans  &trans  &trans  &trans
 &kp HOME        &kp LEFT_ARROW          &kp DOWN_ARROW  &kp RIGHT_ARROW          &kp END  &trans      &kp PAGE_UP    &trans  &trans  &trans  &trans  &trans
 &kp LEFT_SHIFT  &kp LG(LS(LEFT_ARROW))  &trans          &kp LG(LS(RIGHT_ARROW))  &trans   &trans      &kp PAGE_DOWN  &trans  &trans  &trans  &trans  &trans
-&trans          &trans                  &trans          &trans                   &trans   &trans      &trans         &trans                          &trans
+&trans          &trans                  &trans          &kp LEFT_GUI             &trans   &trans      &trans         &trans                          &trans
             >;
 
             /* ★上書きしない（default_layer のスクロールが生きる） */
