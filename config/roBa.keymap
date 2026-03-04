@@ -58,7 +58,7 @@
             key-positions = <10 11>;
         };
 
-        ss {
+        ss2 {
             bindings = <&kp LC(LS(S))>;
             key-positions = <22 23>;
         };
