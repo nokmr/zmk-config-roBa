@@ -59,7 +59,7 @@
 
         /* Windows: Win + Shift + S を確実に送る */
         ss2 {
-            bindings = <&macro screenshot_win>;
+            bindings = <&screenshot_win>;
             key-positions = <22 23>;
         };
     };
