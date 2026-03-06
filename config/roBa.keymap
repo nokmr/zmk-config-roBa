@@ -3,8 +3,6 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
 
-/* Qiita手順：スクロール量（必要なら後で調整） */
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 80
 
 &mt {
     flavor = "balanced";
