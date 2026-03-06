@@ -59,7 +59,7 @@
         };
 
         ss2 {
-            bindings = <&kt LG(LS(S))>;
+            bindings = <&kp LG(LS(S))>;
             key-positions = <22 23>;
         };
     };
