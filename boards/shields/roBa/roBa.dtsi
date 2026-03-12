@@ -94,7 +94,7 @@
         a-gpios = <&xiao_d 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         b-gpios = <&xiao_d 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         steps = <24>;
-        status = "okay";
+        status = "disabled";
     };
 
     right_encoder: encoder_right {
@@ -109,18 +109,16 @@
 
     trackball_listener: trackball_listener {
         compatible = "zmk,input-listener";
-        status = "okay";
+        status = "disabled";
     };
 };
 
 &spi0 {
-    status = "okay";
+    status = "disabled";
 
     trackball: trackball@0 {
-        status = "okay";
+        status = "disabled";
         reg = <0>;
-
-        /* ここに入れる。&trackball 参照は使わない */
         automouse-layer = <4>;
         scroll-layers = <5>;
     };
