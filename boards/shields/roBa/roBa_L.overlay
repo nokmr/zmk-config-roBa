@@ -15,7 +15,6 @@
     status = "okay";
 };
 
-/* 左側ではトラックボールとSPIは使わないので明示的に無効化 */
 &spi0 {
     status = "disabled";
 };
