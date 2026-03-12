@@ -8,7 +8,8 @@
     quick-tap-ms = <0>;
 };
 
-/ {
+/
+{
     combos {
         compatible = "zmk,combos";
 
@@ -32,7 +33,7 @@
             key-positions = <24 25>;
         };
 
-        /* かな/英数（固定）コンボ */
+        /* かな / 英数 */
         eisu {
             bindings = <&kp LANGUAGE_5>;
             key-positions = <3 4>;
@@ -43,7 +44,7 @@
             key-positions = <5 6>;
         };
 
-        /* Win+Shift+4 相当 */
+        /* Win + Shift + 4 相当 */
         ss {
             bindings = <&kp LS(LG(NUMBER_4))>;
             key-positions = <10 11>;
@@ -78,22 +79,12 @@
     };
 
     behaviors {
-        /* 押してる間mo、離したらto 0 */
         lt_to_layer_0: lt_to_layer_0 {
             compatible = "zmk,behavior-hold-tap";
             label = "LAYER_TAP_TO_0";
             bindings = <&mo>, <&to_layer_0>;
             #binding-cells = <2>;
             tapping-term-ms = <200>;
-        };
-
-        /* ロータリー回転 = マウススクロール */
-        encoder_msc_down_up: encoder_msc_down_up {
-            compatible = "zmk,behavior-sensor-rotate";
-            label = "ENCODER_MSC_DOWN_UP";
-            #sensor-binding-cells = <0>;
-            bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
-            tap-ms = <20>;
         };
     };
 
@@ -111,7 +102,8 @@
 &kp LCTRL  &kp LEFT_GUI  &kp LEFT_ALT  &mt LEFT_SHIFT CAPS  &lt 2 SPACE  &lt_to_layer_0 3 ESC            &kp BACKSPACE   &lt 1 ENTER                             &lt 7 DEL
             >;
 
-            sensor-bindings = <&encoder_msc_down_up>;
+            /* 以前動いていた安定方式に戻す */
+            sensor-bindings = <&inc_dec_kp K_SCROLL_UP K_SCROLL_DOWN>;
         };
 
         /* ===========================
@@ -127,7 +119,7 @@
         };
 
         /* ===========================
-         * 2: NUM
+         * 2: NUM（従来）
          * =========================== */
         NUM {
             bindings = <
@@ -143,10 +135,10 @@
          * =========================== */
         ARROW {
             bindings = <
-&kp ESCAPE        &kp LC(LS(TAB))         &kp UP_ARROW    &kp LC(TAB)              &kp SCROLLLOCK                             &trans  &trans  &trans  &trans  &trans
-&kp HOME          &kp LEFT_ARROW          &kp DOWN_ARROW  &kp RIGHT_ARROW          &kp END         &trans      &kp PAGE_UP    &trans  &trans  &trans  &trans  &trans
-&kp LEFT_SHIFT    &kp LG(LS(LEFT_ARROW))  &trans          &kp LG(LS(RIGHT_ARROW))  &trans          &trans      &kp PAGE_DOWN  &trans  &trans  &trans  &trans  &trans
-&kp LEFT_CONTROL  &kp LEFT_GUI            &kp LEFT_ALT    &kp LEFT_GUI             &trans          &trans      &trans         &trans                          &trans
+&kp ESCAPE        &kp LC(LS(TAB))         &kp UP_ARROW    &kp LC(TAB)                &kp SCROLLLOCK                           &trans  &trans  &trans  &trans  &trans
+&kp HOME          &kp LEFT_ARROW          &kp DOWN_ARROW  &kp RIGHT_ARROW            &kp END         &trans      &kp PAGE_UP    &trans  &trans  &trans  &trans  &trans
+&kp LEFT_SHIFT    &kp LG(LS(LEFT_ARROW))  &trans          &kp LG(LS(RIGHT_ARROW))    &trans          &trans      &kp PAGE_DOWN  &trans  &trans  &trans  &trans  &trans
+&kp LEFT_CONTROL  &kp LEFT_GUI            &kp LEFT_ALT    &kp LEFT_GUI               &trans          &trans      &trans         &trans                          &trans
             >;
         };
 
@@ -156,9 +148,9 @@
         MOUSE {
             bindings = <
 &kp LG(LC(NUMBER_4))  &kp W         &trans        &trans  &trans                                  &trans     &trans    &trans    &trans    &trans
-&kp A                 &kp S         &kp D         &trans  &kp F   &msc MOVE_X(0)      &kp UP      &mkp MB5   &mkp MB1  &mkp MB3  &mkp MB2  &mo 3
-&kp Z                 &kp X         &kp C         &kp V   &kp B   &key_repeat         &kp DOWN    &mkp MB4   &trans    &trans    &trans    &trans
-&kp LEFT_CONTROL      &kp LEFT_GUI  &kp LEFT_ALT  &to 0   &trans  &trans              &kp DELETE  &kp ENTER                                &trans
+&kp A                 &kp S         &kp D         &trans  &kp F   &msc MOVE_X(0)                    &kp UP      &mkp MB5   &mkp MB1  &mkp MB3  &mkp MB2  &mo 3
+&kp Z                 &kp X         &kp C         &kp V   &kp B   &key_repeat                       &kp DOWN    &mkp MB4   &trans    &trans    &trans    &trans
+&kp LEFT_CONTROL      &kp LEFT_GUI  &kp LEFT_ALT  &to 0   &trans  &trans                            &kp DELETE  &kp ENTER                                &trans
             >;
         };
 
@@ -187,7 +179,7 @@
         };
 
         /* ===========================
-         * 7: NUM_WIN (Windows JIS向け切替用)
+         * 7: NUM_WIN（Windows確認用）
          * =========================== */
         NUM_WIN {
             bindings = <
