@@ -113,7 +113,7 @@
         default_layer {
             bindings = <
 &kp Q      &kp W         &kp E         &kp R           &kp T                                                        &kp Y        &kp U  &lt 5 I    &kp O    &kp P
-&kp A      &kp S         &kp D         &kp F           &kp G        &msc MOVE_X(5)                  &kp MINUS       &kp H        &kp J  &kp K      &kp L    &lt 5 APOSTROPHE
+&kp A      &kp S         &kp D         &kp F           &kp G        &none                           &kp MINUS       &kp H        &kp J  &kp K      &kp L    &lt 5 APOSTROPHE
 &kp Z      &kp X         &kp C         &kp V           &kp B        &lt_to_layer_0 6 SEMICOLON      &kp SCROLLLOCK  &kp N        &kp M  &kp COMMA  &kp DOT  &kp SLASH
 &kp LCTRL  &kp LEFT_GUI  &kp LEFT_ALT  &kp LEFT_SHIFT  &lt 2 SPACE  &lt_to_layer_0 3 ESC            &kp BACKSPACE   &lt 1 ENTER                             &kp DELETE
             >;
@@ -172,15 +172,6 @@
 &trans  &trans        &trans        &trans        &trans  &trans      &trans       &trans        &trans        &trans        &trans        &trans
 &trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &trans  &trans      &bootloader  &trans        &trans        &trans        &trans        &bt BT_CLR
 &trans  &trans        &trans        &trans        &trans  &trans      &trans       &trans                                                  &bt BT_CLR_ALL
-            >;
-        };
-
-        NUM_WIN {
-            bindings = <
-&kp MINUS         &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp PLUS                                                   &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp TILDE        &kp CARET    &kp AMPERSAND
-&kp SLASH         &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp ASTERISK  &kp LC(LA(KP_NUMBER_0))      &kp UNDERSCORE  &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp HASH         &kp DOLLAR   &kp PERCENT
-&kp KP_NUMBER_0   &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp PERIOD    &kp EQUAL                    &trans          &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp EXCLAMATION  &kp AT_SIGN  &kp BACKSLASH
-&kp LEFT_CONTROL  &kp LEFT_GUI     &kp LEFT_ALT     &kp LEFT_SHIFT   &trans        &trans                       &trans          &trans                                                                     &kp PIPE
             >;
         };
     };
