@@ -1,3 +1,4 @@
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 100
 #include "roBa.dtsi"
 
 &kscan0 {
