@@ -135,7 +135,7 @@
 &kp MINUS         &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp PLUS                                                   &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp TILDE        &kp CARET    &kp AMPERSAND
 &kp SLASH         &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp ASTERISK  &kp LC(LA(KP_NUMBER_0))      &kp UNDERSCORE  &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp HASH         &kp DOLLAR   &kp PERCENT
 &kp KP_NUMBER_0   &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp PERIOD    &kp EQUAL                    &trans          &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp EXCLAMATION  &kp AT_SIGN  &kp BACKSLASH
-&kp LEFT_CONTROL  &kp LEFT_GUI     &kp LEFT_ALT     &trans           &trans        &trans                       &trans          &trans                                                                     &kp PIPE
+&kp LEFT_CONTROL  &kp LEFT_GUI     &kp LEFT_ALT     &kp LEFT_SHIFT   &trans        &trans                       &trans          &trans                                                                     &kp PIPE
             >;
         };
 
@@ -150,10 +150,10 @@
 
         MOUSE {
             bindings = <
-&kp LG(LC(NUMBER_4))  &kp W         &trans        &trans  &trans                                  &trans     &trans    &trans    &trans    &trans
-&kp A                 &kp S         &kp D         &trans  &kp F   &msc MOVE_X(0)      &kp UP      &mkp MB5   &mkp MB1  &mkp MB3  &mkp MB2  &mo 3
-&kp Z                 &kp X         &kp C         &kp V   &kp B   &key_repeat         &kp DOWN    &mkp MB4   &trans    &trans    &trans    &trans
-&kp LEFT_CONTROL      &kp LEFT_GUI  &kp LEFT_ALT  &to 0   &trans  &trans              &kp DELETE  &kp ENTER                                &trans
+&kp LG(LC(NUMBER_4))  &kp W         &trans        &trans  &trans                               &trans     &trans    &trans    &trans    &trans
+&kp A                 &kp S         &kp D         &trans  &kp F   &trans           &kp UP      &mkp MB5   &mkp MB1  &mkp MB3  &mkp MB2  &mo 3
+&kp Z                 &kp X         &kp C         &kp V   &kp B   &key_repeat      &kp DOWN    &mkp MB4   &trans    &trans    &trans    &trans
+&kp LEFT_CONTROL      &kp LEFT_GUI  &kp LEFT_ALT  &to 0   &trans  &trans           &kp DELETE  &kp ENTER                                &trans
             >;
         };
 
@@ -180,7 +180,7 @@
 &kp MINUS         &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp PLUS                                                   &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp TILDE        &kp CARET    &kp AMPERSAND
 &kp SLASH         &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp ASTERISK  &kp LC(LA(KP_NUMBER_0))      &kp UNDERSCORE  &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp HASH         &kp DOLLAR   &kp PERCENT
 &kp KP_NUMBER_0   &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp PERIOD    &kp EQUAL                    &trans          &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp EXCLAMATION  &kp AT_SIGN  &kp BACKSLASH
-&kp LEFT_CONTROL  &kp LEFT_GUI     &kp LEFT_ALT     &trans           &trans        &trans                       &trans          &trans                                                                     &kp PIPE
+&kp LEFT_CONTROL  &kp LEFT_GUI     &kp LEFT_ALT     &kp LEFT_SHIFT   &trans        &trans                       &trans          &trans                                                                     &kp PIPE
             >;
         };
     };
