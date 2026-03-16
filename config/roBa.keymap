@@ -4,8 +4,12 @@
 #include <input/processors.dtsi>
 
 #define BASE 0
-#define SCROLL 1
-#define MOUSE 2
+#define FUNCTION 1
+#define NUM 2
+#define ARROW 3
+#define MOUSE 4
+#define SCROLL 5
+#define BT 6
 
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 80
 
@@ -97,7 +101,6 @@
             compatible = "zmk,behavior-hold-tap";
             label = "LAYER_TAP_TO_0";
             bindings = <&mo>, <&to_layer_0>;
-
             #binding-cells = <2>;
             tapping-term-ms = <200>;
         };
@@ -107,7 +110,6 @@
             label = "ENCODER_MSC_DOWN_UP";
             #sensor-binding-cells = <0>;
             bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
-
             tap-ms = <20>;
         };
     };
@@ -117,34 +119,35 @@
 
         default_layer {
             bindings = <
-&kp Q      &kp W         &kp E         &kp R           &kp T                                                        &kp Y        &kp U  &lt 5 I    &kp O    &kp P
-&kp A      &kp S         &kp D         &kp F           &kp G        &none                           &kp MINUS       &kp H        &kp J  &kp K      &kp L    &lt 5 APOSTROPHE
-&kp Z      &kp X         &kp C         &kp V           &kp B        &lt_to_layer_0 6 SEMICOLON      &kp SCROLLLOCK  &kp N        &kp M  &kp COMMA  &kp DOT  &kp SLASH
-&kp LCTRL  &kp LEFT_GUI  &kp LEFT_ALT  &kp LEFT_SHIFT  &lt 2 SPACE  &lt_to_layer_0 3 ESC            &kp BACKSPACE   &lt 1 ENTER                             &kp DELETE
+&kp Q      &kp W         &kp E         &kp R           &kp T                                                        &kp Y        &kp U  &lt BT I      &kp O    &kp P
+&kp A      &kp S         &kp D         &kp F           &kp G        &none                           &kp MINUS       &kp H        &kp J  &kp K        &kp L    &mo SCROLL
+&kp Z      &kp X         &kp C         &kp V           &kp B        &lt_to_layer_0 BT SEMICOLON     &kp SCROLLLOCK  &kp N        &kp M  &kp COMMA    &kp DOT  &kp SLASH
+&kp LCTRL  &kp LEFT_GUI  &kp LEFT_ALT  &kp LEFT_SHIFT  &lt NUM SPACE &lt_to_layer_0 ARROW ESC       &kp BACKSPACE   &lt FUNCTION ENTER                           &kp DELETE
             >;
 
+            /* 左ロータリーエンコーダーを常時スクロールにする */
             sensor-bindings = <&encoder_msc_down_up>;
         };
 
-        FUNCTION {
+        function_layer {
             bindings = <
 &trans  &kp F7  &kp F8  &kp F9  &kp F10                       &kp F11  &kp F12  &kp F3  &kp F4  &kp F5
-&trans  &kp F4  &kp F5  &kp F6  &trans   &trans      &kp F13  &kp F6   &kp F7   &kp F8  &kp F9  &kp F10
-&trans  &kp F1  &kp F2  &kp F3  &trans   &trans      &trans   &trans   &trans   &trans  &trans  &kp F11
-&trans  &trans  &trans  &trans  &trans   &trans      &trans   &trans                            &kp F12
+&trans  &kp F4  &kp F5  &kp F6  &trans   &trans              &kp F13  &kp F6   &kp F7  &kp F8  &kp F9  &kp F10
+&trans  &kp F1  &kp F2  &kp F3  &trans   &trans              &trans   &trans   &trans  &trans  &trans  &kp F11
+&trans  &trans  &trans  &trans  &trans   &trans              &trans   &trans                            &kp F12
             >;
         };
 
-        NUM {
+        num_layer {
             bindings = <
-&kp MINUS         &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp PLUS                                                   &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp TILDE        &kp CARET    &kp AMPERSAND
-&kp SLASH         &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp ASTERISK  &kp LC(LA(KP_NUMBER_0))      &kp UNDERSCORE  &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp HASH         &kp DOLLAR   &kp PERCENT
-&kp KP_NUMBER_0   &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp PERIOD    &kp EQUAL                    &kp COLON       &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp EXCLAMATION  &kp AT_SIGN  &kp BACKSLASH
-&kp LEFT_CONTROL  &kp LEFT_GUI     &kp LEFT_ALT     &kp LEFT_SHIFT   &trans        &trans                       &trans          &trans                                                                     &kp PIPE
+&kp MINUS         &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp PLUS                                              &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp TILDE        &kp CARET    &kp AMPERSAND
+&kp SLASH         &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp ASTERISK  &kp LC(LA(KP_NUMBER_0))                 &kp UNDERSCORE        &kp LEFT_BRACE        &kp RIGHT_BRACE  &kp HASH     &kp DOLLAR   &kp PERCENT
+&kp KP_NUMBER_0   &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp PERIOD    &kp EQUAL                               &kp COLON             &kp LEFT_BRACKET      &kp RIGHT_BRACKET &kp EXCLAMATION &kp AT_SIGN &kp BACKSLASH
+&kp LEFT_CONTROL  &kp LEFT_GUI     &kp LEFT_ALT     &kp LEFT_SHIFT   &trans        &trans                                  &trans                &trans                                                     &kp PIPE
             >;
         };
 
-        ARROW {
+        arrow_layer {
             bindings = <
 &kp ESCAPE        &kp LC(LS(TAB))         &kp UP_ARROW    &kp LC(TAB)              &kp SCROLLLOCK                             &trans  &trans  &trans  &trans  &trans
 &kp HOME          &kp LEFT_ARROW          &kp DOWN_ARROW  &kp RIGHT_ARROW          &kp END         &trans      &kp PAGE_UP    &trans  &trans  &trans  &trans  &trans
@@ -153,42 +156,46 @@
             >;
         };
 
-        MOUSE {
+        mouse_layer {
             bindings = <
 &kp LG(LC(NUMBER_4))  &kp W         &trans        &trans  &trans                               &trans     &trans    &trans    &trans    &trans
-&kp A                 &kp S         &kp D         &trans  &kp F   &trans           &kp UP      &mkp MB5   &mkp MB1  &mkp MB3  &mkp MB2  &mo 3
-&kp Z                 &kp X         &kp C         &kp V   &kp B   &key_repeat      &kp DOWN    &mkp MB4   &trans    &trans    &trans    &trans
-&kp LEFT_CONTROL      &kp LEFT_GUI  &kp LEFT_ALT  &to 0   &trans  &trans           &kp DELETE  &kp ENTER                                &trans
+&kp A                 &kp S         &kp D         &trans  &kp F   &trans                         &kp UP      &mkp MB5   &mkp MB1  &mkp MB3  &mkp MB2  &mo ARROW
+&kp Z                 &kp X         &kp C         &kp V   &kp B   &key_repeat                    &kp DOWN    &mkp MB4   &trans    &trans    &trans    &trans
+&kp LEFT_CONTROL      &kp LEFT_GUI  &kp LEFT_ALT  &to 0   &trans  &trans                         &kp DELETE  &kp ENTER                                &trans
             >;
         };
 
-        scroll {
+        scroll_layer {
             bindings = <
 &trans  &trans  &trans  &trans  &trans                      &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                          &trans
+&trans  &trans  &trans  &trans  &trans  &trans              &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans              &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans              &trans  &trans                          &trans
             >;
         };
 
-        bt {
+        bt_layer {
             bindings = <
 &trans  &trans        &trans        &trans        &trans                           &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
-&trans  &trans        &trans        &trans        &trans  &trans      &trans       &trans        &trans        &trans        &trans        &trans
-&trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &trans  &trans      &bootloader  &trans        &trans        &trans        &trans        &bt BT_CLR
-&trans  &trans        &trans        &trans        &trans  &trans      &trans       &trans                                                  &bt BT_CLR_ALL
+&trans  &trans        &trans        &trans        &trans  &trans                    &trans       &trans        &trans        &trans        &trans        &trans
+&trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &trans  &trans                    &bootloader  &trans        &trans        &trans        &trans        &bt BT_CLR
+&trans  &trans        &trans        &trans        &trans  &trans                    &trans       &trans                                                  &bt BT_CLR_ALL
             >;
         };
     };
 };
 
 &trackball_listener {
-    /* ↓ この1行を追加！ トラックボールを動かすとレイヤー4（マウス）になる */
+    /*
+     * 重要:
+     * 以前入っていた
+     *   input-processors = <&zip_temp_layer 4 2000>;
+     * は削除。
+     * これがあると、トラックボールを動かすたびに MOUSE レイヤーへ飛ぶ。
+     */
 
-    input-processors = <&zip_temp_layer 4 2000>;
-
-    scroll_layer {
-        layers = <5>;
+    scroll_mode {
+        layers = <SCROLL>;
         input-processors = <&zip_xy_scaler 1 3>, <&zip_xy_to_scroll_mapper>;
     };
 };
