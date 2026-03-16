@@ -21,50 +21,15 @@
     combos {
         compatible = "zmk,combos";
 
-        tab {
-            bindings = <&kp TAB>;
-            key-positions = <11 12>;
-        };
-
-        shift_tab {
-            bindings = <&kp LS(TAB)>;
-            key-positions = <12 13>;
-        };
-
-        double_quotation {
-            bindings = <&kp DOUBLE_QUOTES>;
-            key-positions = <20 21>;
-        };
-
-        eq {
-            bindings = <&kp EQUAL>;
-            key-positions = <24 25>;
-        };
-
-        hiragana {
-            bindings = <&kp LA(GRAVE)>;
-            key-positions = <13 14>;
-        };
-
-        ss {
-            bindings = <&kp LS(LG(NUMBER_4))>;
-            key-positions = <0 1>;
-        };
-
-        ss2 {
-            bindings = <&screenshot_win>;
-            key-positions = <22 23>;
-        };
-
-        mac {
-            bindings = <&kp LC(SPACE)>;
-            key-positions = <3 2>;
-        };
-
-        capslock {
-            bindings = <&kp CAPSLOCK>;
-            key-positions = <1 2 13>;
-        };
+        tab { bindings = <&kp TAB>; key-positions = <11 12>; };
+        shift_tab { bindings = <&kp LS(TAB)>; key-positions = <12 13>; };
+        double_quotation { bindings = <&kp DOUBLE_QUOTES>; key-positions = <20 21>; };
+        eq { bindings = <&kp EQUAL>; key-positions = <24 25>; };
+        hiragana { bindings = <&kp LA(GRAVE)>; key-positions = <13 14>; };
+        ss { bindings = <&kp LS(LG(NUMBER_4))>; key-positions = <0 1>; };
+        ss2 { bindings = <&screenshot_win>; key-positions = <22 23>; };
+        mac { bindings = <&kp LC(SPACE)>; key-positions = <3 2>; };
+        capslock { bindings = <&kp CAPSLOCK>; key-positions = <1 2 13>; };
     };
 
     macros {
@@ -108,7 +73,7 @@
             compatible = "zmk,behavior-sensor-rotate";
             label = "ENCODER_MSC_DOWN_UP";
             #sensor-binding-cells = <0>;
-            bindings = <&msc MOVE_DOWN>, <&msc MOVE_UP>;
+            bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
             tap-ms = <20>;
         };
     };
@@ -159,7 +124,7 @@
         mouse_layer {
             bindings = <
 &kp LG(LC(NUMBER_4))  &kp W         &trans        &trans  &trans                                  &trans     &trans    &trans    &trans    &trans
-&kp A                 &kp S         &kp D         &trans  &kp F   &trans              &kp UP      &mkp MB5   &mkp MB1  &mkp MB3  &mkp MB2  &trans
+&kp A                 &kp S         &kp D         &trans  &kp F   &trans              &kp UP      &mkp MB5   &mkp MB1  &mkp MB3  &mkp MB2  &mo 5
 &kp Z                 &kp X         &kp C         &kp V   &kp B   &key_repeat         &kp DOWN    &mkp MB4   &trans    &trans    &trans    &trans
 &kp LEFT_CONTROL      &kp LEFT_GUI  &kp LEFT_ALT  &to 0   &trans  &trans              &kp DELETE  &kp ENTER                                &trans
             >;
