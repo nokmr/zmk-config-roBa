@@ -1,5 +1,10 @@
 #include <behaviors.dtsi>
+#include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
+
+/* ↓ pointing.h を読み込む前にスクロール量を定義する（警告・エラー回避） */
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 100
+
 #include <dt-bindings/zmk/pointing.h>
 #include <input/processors.dtsi>
 
@@ -11,8 +16,6 @@
 #define SCROLL 5
 #define BT 6
 
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 80
-
 &mt {
     flavor = "balanced";
     quick-tap-ms = <0>;
@@ -21,51 +24,15 @@
 / {
     combos {
         compatible = "zmk,combos";
-
-        tab {
-            bindings = <&kp TAB>;
-            key-positions = <11 12>;
-        };
-
-        shift_tab {
-            bindings = <&kp LS(TAB)>;
-            key-positions = <12 13>;
-        };
-
-        double_quotation {
-            bindings = <&kp DOUBLE_QUOTES>;
-            key-positions = <20 21>;
-        };
-
-        eq {
-            bindings = <&kp EQUAL>;
-            key-positions = <24 25>;
-        };
-
-        hiragana {
-            bindings = <&kp LA(GRAVE)>;
-            key-positions = <13 14>;
-        };
-
-        ss {
-            bindings = <&kp LS(LG(NUMBER_4))>;
-            key-positions = <0 1>;
-        };
-
-        ss2 {
-            bindings = <&screenshot_win>;
-            key-positions = <22 23>;
-        };
-
-        mac {
-            bindings = <&kp LC(SPACE)>;
-            key-positions = <3 2>;
-        };
-
-        capslock {
-            bindings = <&kp CAPSLOCK>;
-            key-positions = <1 2 13>;
-        };
+        tab { bindings = <&kp TAB>; key-positions = <11 12>; };
+        shift_tab { bindings = <&kp LS(TAB)>; key-positions = <12 13>; };
+        double_quotation { bindings = <&kp DOUBLE_QUOTES>; key-positions = <20 21>; };
+        eq { bindings = <&kp EQUAL>; key-positions = <24 25>; };
+        hiragana { bindings = <&kp LA(GRAVE)>; key-positions = <13 14>; };
+        ss { bindings = <&kp LS(LG(NUMBER_4))>; key-positions = <0 1>; };
+        ss2 { bindings = <&screenshot_win>; key-positions = <22 23>; };
+        mac { bindings = <&kp LC(SPACE)>; key-positions = <3 2>; };
+        capslock { bindings = <&kp CAPSLOCK>; key-positions = <1 2 13>; };
     };
 
     macros {
@@ -82,17 +49,7 @@
             label = "SCREENSHOT_WIN";
             wait-ms = <30>;
             tap-ms = <30>;
-            bindings =
-                <&macro_press>,
-                <&kp LGUI>,
-                <&macro_press>,
-                <&kp LSHIFT>,
-                <&macro_tap>,
-                <&kp S>,
-                <&macro_release>,
-                <&kp LSHIFT>,
-                <&macro_release>,
-                <&kp LGUI>;
+            bindings = <&macro_press>, <&kp LGUI>, <&macro_press>, <&kp LSHIFT>, <&macro_tap>, <&kp S>, <&macro_release>, <&kp LSHIFT>, <&macro_release>, <&kp LGUI>;
         };
     };
 
@@ -119,31 +76,29 @@
 
         default_layer {
             bindings = <
-&kp Q      &kp W         &kp E         &kp R           &kp T                                                        &kp Y        &kp U  &lt BT I      &kp O    &kp P
-&kp A      &kp S         &kp D         &kp F           &kp G        &none                           &kp MINUS       &kp H        &kp J  &kp K        &kp L    &mo SCROLL
-&kp Z      &kp X         &kp C         &kp V           &kp B        &lt_to_layer_0 BT SEMICOLON     &kp SCROLLLOCK  &kp N        &kp M  &kp COMMA    &kp DOT  &kp SLASH
-&kp LCTRL  &kp LEFT_GUI  &kp LEFT_ALT  &kp LEFT_SHIFT  &lt NUM SPACE &lt_to_layer_0 ARROW ESC       &kp BACKSPACE   &lt FUNCTION ENTER                           &kp DELETE
+&kp Q      &kp W         &kp E         &kp R           &kp T                                                        &kp Y        &kp U  &lt BT I   &kp O    &kp P
+&kp A      &kp S         &kp D         &kp F           &kp G        &trans                          &kp MINUS       &kp H        &kp J  &kp K      &kp L    &mo SCROLL
+&kp Z      &kp X         &kp C         &kp V           &kp B        &lt_to_layer_0 BT SEMICOLON     &kp SCROLLLOCK  &kp N        &kp M  &kp COMMA  &kp DOT  &kp SLASH
+&kp LCTRL  &kp LEFT_GUI  &kp LEFT_ALT  &kp LEFT_SHIFT  &lt NUM SPACE &lt_to_layer_0 ARROW ESC       &kp BACKSPACE   &lt FUNCTION ENTER                      &kp DELETE
             >;
-
-            /* 左ロータリーエンコーダーを常時スクロールにする */
             sensor-bindings = <&encoder_msc_down_up>;
         };
 
         function_layer {
             bindings = <
 &trans  &kp F7  &kp F8  &kp F9  &kp F10                       &kp F11  &kp F12  &kp F3  &kp F4  &kp F5
-&trans  &kp F4  &kp F5  &kp F6  &trans   &trans              &kp F13  &kp F6   &kp F7  &kp F8  &kp F9  &kp F10
-&trans  &kp F1  &kp F2  &kp F3  &trans   &trans              &trans   &trans   &trans  &trans  &trans  &kp F11
-&trans  &trans  &trans  &trans  &trans   &trans              &trans   &trans                            &kp F12
+&trans  &kp F4  &kp F5  &kp F6  &trans   &trans      &kp F13  &kp F6   &kp F7   &kp F8  &kp F9  &kp F10
+&trans  &kp F1  &kp F2  &kp F3  &trans   &trans      &trans   &trans   &trans   &trans  &trans  &kp F11
+&trans  &trans  &trans  &trans  &trans   &trans      &trans   &trans                            &kp F12
             >;
         };
 
         num_layer {
             bindings = <
-&kp MINUS         &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp PLUS                                              &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp TILDE        &kp CARET    &kp AMPERSAND
-&kp SLASH         &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp ASTERISK  &kp LC(LA(KP_NUMBER_0))                 &kp UNDERSCORE        &kp LEFT_BRACE        &kp RIGHT_BRACE  &kp HASH     &kp DOLLAR   &kp PERCENT
-&kp KP_NUMBER_0   &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp PERIOD    &kp EQUAL                               &kp COLON             &kp LEFT_BRACKET      &kp RIGHT_BRACKET &kp EXCLAMATION &kp AT_SIGN &kp BACKSLASH
-&kp LEFT_CONTROL  &kp LEFT_GUI     &kp LEFT_ALT     &kp LEFT_SHIFT   &trans        &trans                                  &trans                &trans                                                     &kp PIPE
+&kp MINUS         &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp PLUS                                                   &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp TILDE        &kp CARET    &kp AMPERSAND
+&kp SLASH         &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp ASTERISK  &kp LC(LA(KP_NUMBER_0))      &kp UNDERSCORE  &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp HASH         &kp DOLLAR   &kp PERCENT
+&kp KP_NUMBER_0   &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp PERIOD    &kp EQUAL                    &kp COLON       &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp EXCLAMATION  &kp AT_SIGN  &kp BACKSLASH
+&kp LEFT_CONTROL  &kp LEFT_GUI     &kp LEFT_ALT     &kp LEFT_SHIFT   &trans        &trans                       &trans          &trans                                                                     &kp PIPE
             >;
         };
 
@@ -158,44 +113,25 @@
 
         mouse_layer {
             bindings = <
-&kp LG(LC(NUMBER_4))  &kp W         &trans        &trans  &trans                               &trans     &trans    &trans    &trans    &trans
-&kp A                 &kp S         &kp D         &trans  &kp F   &trans                         &kp UP      &mkp MB5   &mkp MB1  &mkp MB3  &mkp MB2  &mo ARROW
-&kp Z                 &kp X         &kp C         &kp V   &kp B   &key_repeat                    &kp DOWN    &mkp MB4   &trans    &trans    &trans    &trans
-&kp LEFT_CONTROL      &kp LEFT_GUI  &kp LEFT_ALT  &to 0   &trans  &trans                         &kp DELETE  &kp ENTER                                &trans
+&kp LG(LC(NUMBER_4))  &kp W         &trans        &trans  &trans                                  &trans     &trans    &trans    &trans    &trans
+&kp A                 &kp S         &kp D         &trans  &kp F   &trans              &kp UP      &mkp MB5   &mkp MB1  &mkp MB3  &mkp MB2  &mo ARROW
+&kp Z                 &kp X         &kp C         &kp V   &kp B   &key_repeat         &kp DOWN    &mkp MB4   &trans    &trans    &trans    &trans
+&kp LEFT_CONTROL      &kp LEFT_GUI  &kp LEFT_ALT  &to 0   &trans  &trans              &kp DELETE  &kp ENTER                                &trans
             >;
         };
 
         scroll_layer {
             bindings = <
 &trans  &trans  &trans  &trans  &trans                      &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans              &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans              &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans              &trans  &trans                          &trans
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                          &trans
             >;
         };
 
         bt_layer {
             bindings = <
 &trans  &trans        &trans        &trans        &trans                           &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
-&trans  &trans        &trans        &trans        &trans  &trans                    &trans       &trans        &trans        &trans        &trans        &trans
-&trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &trans  &trans                    &bootloader  &trans        &trans        &trans        &trans        &bt BT_CLR
-&trans  &trans        &trans        &trans        &trans  &trans                    &trans       &trans                                                  &bt BT_CLR_ALL
-            >;
-        };
-    };
-};
-
-&trackball_listener {
-    /*
-     * 重要:
-     * 以前入っていた
-     *   input-processors = <&zip_temp_layer 4 2000>;
-     * は削除。
-     * これがあると、トラックボールを動かすたびに MOUSE レイヤーへ飛ぶ。
-     */
-
-    scroll_mode {
-        layers = <SCROLL>;
-        input-processors = <&zip_xy_scaler 1 3>, <&zip_xy_to_scroll_mapper>;
-    };
-};
+&trans  &trans        &trans        &trans        &trans  &trans      &trans       &trans        &trans        &trans        &trans        &trans
+&trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &trans  &trans      &bootloader  &trans        &trans        &trans        &trans        &bt BT_CLR
+&trans  &trans        &trans        &trans        &trans  &trans      &trans       &trans                                                  &bt BT
