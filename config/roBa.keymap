@@ -61,6 +61,16 @@
             bindings = <&kp CAPSLOCK>;
             key-positions = <1 2 13>;
         };
+
+        hiragana {
+            bindings = <&kp LANGUAGE_1>;
+            key-positions = <13 14>;
+        };
+
+        hamkaku {
+            bindings = <&kp LANGUAGE_2>;
+            key-positions = <26 25>;
+        };
     };
 
     macros {
