@@ -42,11 +42,6 @@
             key-positions = <24 25>;
         };
 
-        hiragana {
-            bindings = <&kp LA(GRAVE)>;
-            key-positions = <13 14>;
-        };
-
         ss {
             bindings = <&kp LS(LG(NUMBER_4))>;
             key-positions = <0 1>;
