@@ -149,10 +149,10 @@
 
         arrow_layer {
             bindings = <
-&kp ESCAPE        &kp LC(LS(TAB))         &kp UP_ARROW    &kp LC(TAB)              &kp SCROLLLOCK                             &trans  &trans  &trans  &trans  &trans
-&kp HOME          &kp LEFT_ARROW          &kp DOWN_ARROW  &kp RIGHT_ARROW          &kp END         &trans      &kp PAGE_UP    &trans  &trans  &trans  &trans  &trans
-&kp LEFT_SHIFT    &kp LG(LS(LEFT_ARROW))  &trans          &kp LG(LS(RIGHT_ARROW))  &trans          &trans      &kp PAGE_DOWN  &trans  &trans  &trans  &trans  &trans
-&kp LEFT_CONTROL  &kp LEFT_GUI            &kp LEFT_ALT    &kp LEFT_GUI             &trans          &trans      &trans         &trans                          &trans
+&kp ESCAPE        &kp LC(LS(TAB))         &kp UP_ARROW    &kp LC(TAB)              &kp SCROLLLOCK                                 &trans             &trans             &trans  &trans  &trans
+&kp HOME          &kp LEFT_ARROW          &kp DOWN_ARROW  &kp RIGHT_ARROW          &kp END           &trans      &kp PAGE_UP      &trans             &trans             &trans  &trans  &trans
+&kp LEFT_SHIFT    &kp LG(LS(LEFT_ARROW))  &trans          &kp LG(LS(RIGHT_ARROW))  &trans            &trans      &kp PAGE_DOWN    &kp RIGHT_SHIFT    &kp RIGHT_CONTROL  &trans  &trans  &trans
+&kp LEFT_CONTROL  &kp LEFT_GUI            &kp LEFT_ALT    &kp LEFT_GUI             &kp LEFT_CONTROL  &trans      &kp RIGHT_SHIFT  &kp RIGHT_CONTROL                                     &trans
             >;
 
             sensor-bindings = <&encoder_msc_down_up>;
@@ -160,10 +160,10 @@
 
         mouse_layer {
             bindings = <
-&kp LG(LC(NUMBER_4))  &kp W         &trans        &trans  &trans                                  &trans     &trans    &trans    &trans    &trans
-&kp A                 &kp S         &kp D         &trans  &kp F   &trans           &kp UP         &mkp MB5   &mkp MB1  &mkp MB3  &mkp MB2  &mo 5
-&kp Z                 &kp X         &kp C         &kp V   &kp B   &key_repeat      &kp DOWN       &mkp MB4   &trans    &trans    &trans    &trans
-&kp LEFT_CONTROL      &kp LEFT_GUI  &kp LEFT_ALT  &to 0   &trans  &trans           &kp BACKSPACE  &kp ENTER                                &kp DELETE
+&kp LG(LC(NUMBER_4))  &kp W         &trans        &trans         &trans                                     &trans     &trans    &trans    &trans    &trans
+&kp A                 &kp S         &kp D         &trans         &kp F      &trans           &kp UP         &mkp MB5   &mkp MB1  &mkp MB3  &mkp MB2  &mo 5
+&kp Z                 &kp X         &kp C         &kp V          &kp B      &key_repeat      &kp DOWN       &mkp MB4   &trans    &trans    &trans    &mo 4
+&kp LEFT_CONTROL      &kp LEFT_GUI  &kp LEFT_ALT  &kp BACKSPACE  &kp ENTER  &kp DELETE       &kp BACKSPACE  &kp ENTER                                &kp DELETE
             >;
 
             sensor-bindings = <&encoder_msc_down_up>;
