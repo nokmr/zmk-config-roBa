@@ -203,7 +203,7 @@
 };
 
 &trackball_listener {
-    input-processors = <&zip_xy_scaler 2 1>, <&zip_temp_layer 4 300>;
+    input-processors = <&zip_xy_scaler 2 1>;
 
     scroll_mode {
         layers = <5>;
